@@ -1,0 +1,29 @@
+<div>
+    <div>Level {{level}}</div>
+    <div class="radio-container">
+        <label class="radio">
+            <input type="radio" name="level" [value]="1" [(ngModel)]="level">
+            <span>Beginner</span>
+        </label>
+        <div class="hint">2 Exercises per day, 3 days per week</div>
+    </div>
+    <div class="radio-container">
+        <label class="radio">
+            <input type="radio" name="level" [value]="2" [(ngModel)]="level">
+            <span>Intermediate</span>
+        </label>
+        <div class="hint">3 Exercises per day, 3 days per week</div>
+    </div>
+    <div class="radio-container">
+        <label class="radio">
+            <input type="radio" name="level" [value]="3" [(ngModel)]="level">
+            <span>Adwanced</span>
+        </label>
+        <div class="hint">6 Exercises per day, 3 days per week</div>
+    </div>
+    <div>
+        <div style="display: flex; justify-content: space-around;">
+            <div class="done-button" (click)="save()">Save</div>
+        </div>
+    </div>
+</div>

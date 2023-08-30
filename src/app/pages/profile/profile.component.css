@@ -1,0 +1,23 @@
+.radio {
+    padding: 10px;
+}
+
+.hint {
+    margin-left: 50px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.done-button {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #a3a3a3;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,49 @@
+.header {
+    height: 50px;
+    background-color: bisque;
+    flex-basis: 50px;
+    flex-shrink: 0;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body {
+    flex-grow: 2;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+:host {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.footer {
+    height: 50px;
+    border-top: 1px solid bisque;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.active {
+    color: bisque;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

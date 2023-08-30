@@ -229,17 +229,17 @@ export class ExercisesService {
 
 
 
-    {id: 151, group: ExerciseType.Shoulders, level: 1, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 30, mono: false, time: true},
-    {id: 152, group: ExerciseType.Shoulders, level: 2, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 60, mono: false, time: true},
-    {id: 153, group: ExerciseType.Shoulders, level: 3, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 120, mono: false, time: true},
+    {id: 151, group: ExerciseType.Shoulders, level: 1, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 30, mono: false, time: 'sec'},
+    {id: 152, group: ExerciseType.Shoulders, level: 2, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 1, mono: false, time: 'min'},
+    {id: 153, group: ExerciseType.Shoulders, level: 3, title: 'Стойка на голове у стены', video: '', iterations: 1, quantity: 2, mono: false, time: 'min'},
 
-    {id: 154, group: ExerciseType.Shoulders, level: 4, title: 'Поза ворона', video: '', iterations: 1, quantity: 10, mono: false, time: true},
-    {id: 155, group: ExerciseType.Shoulders, level: 5, title: 'Поза ворона', video: '', iterations: 1, quantity: 30, mono: false, time: true},
-    {id: 156, group: ExerciseType.Shoulders, level: 6, title: 'Поза ворона', video: '', iterations: 1, quantity: 60, mono: false, time: true},
+    {id: 154, group: ExerciseType.Shoulders, level: 4, title: 'Поза ворона', video: '', iterations: 1, quantity: 10, mono: false, time: 'sec', images: ['https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174914.png', 'https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174751.png']},
+    {id: 155, group: ExerciseType.Shoulders, level: 5, title: 'Поза ворона', video: '', iterations: 1, quantity: 30, mono: false, time: 'sec', images: ['https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174914.png', 'https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174751.png']},
+    {id: 156, group: ExerciseType.Shoulders, level: 6, title: 'Поза ворона', video: '', iterations: 1, quantity: 60, mono: false, time: 'sec', images: ['https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174914.png', 'https://fit-static-cc.s3.eu-central-1.amazonaws.com/Screenshot+2023-08-30+174751.png']},
 
-    {id: 157, group: ExerciseType.Shoulders, level: 7, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 30, mono: false, time: true},
-    {id: 158, group: ExerciseType.Shoulders, level: 8, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 60, mono: false, time: true},
-    {id: 159, group: ExerciseType.Shoulders, level: 9, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 120, mono: false, time: true},
+    {id: 157, group: ExerciseType.Shoulders, level: 7, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 30, mono: false, time: 'sec'},
+    {id: 158, group: ExerciseType.Shoulders, level: 8, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 1, mono: false, time: 'min'},
+    {id: 159, group: ExerciseType.Shoulders, level: 9, title: 'Стойка на руках у стены', video: '', iterations: 1, quantity: 2, mono: false, time: 'min'},
 
     {id: 160, group: ExerciseType.Shoulders, level: 10, title: 'Частичные отжимания в стойке на руках', video: '', iterations: 1, quantity: 5, mono: false},
     {id: 161, group: ExerciseType.Shoulders, level: 11, title: 'Частичные отжимания в стойке на руках', video: '', iterations: 2, quantity: 10, mono: false},

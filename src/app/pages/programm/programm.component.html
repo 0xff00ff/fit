@@ -1,28 +1,29 @@
-<div style="padding: 10px; margin: 10px;">
-    <div>Current Day</div>
-    <div>
-        <div style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #d9d9d9; border-radius: 5px; gap: 10px; margin: 5px 0 5px 0; ">
+<div style="padding: 10px;">
+        <div class="exercises-container">
+            <div style=" display: flex; flex-direction: row; justify-content: space-between; padding: 5px;">
+                <div>Занятия на сегодня</div>
+                <div routerLink="/current-day/0">Подробней</div>
+            </div>
             <div style="flex-grow: 1;">
-                <div *ngFor="let ex of currentDay.exercises" class="exercise-line">
-                    <div style="white-space: nowrap;">Level {{ex.level}}</div>
+                <div *ngFor="let ex of currentDay.exercises; let i = index;" class="exercise-line" (click)="test()" routerLink="/current-day/{{i}}">
+                    <div style="white-space: nowrap;">Ур {{ex.level}}</div>
                     <div style="flex-grow: 1;">{{ex.title}}</div>
                     <div style="white-space: nowrap;">
                         {{ex.iterations}} X {{ex.quantity}}
                         <span *ngIf="ex.mono"> X 2</span>
-                        <span *ngIf="ex.time">min</span>
+                        <span *ngIf="ex.time">{{ex.time}}</span>
                     </div>
-                    <div style="width: 70px; display: flex; justify-content: end;">
-                        <mat-icon fontIcon="check_circle" (click)="setDone(ex)"  *ngIf="!finished.find(ex)"></mat-icon>
-                        <mat-icon fontIcon="cancel" (click)="setNotDone(ex)"  *ngIf="!finished.find(ex)"></mat-icon>
+                    <div style="width: 60px; display: flex; justify-content: end; flex-shrink: 0;">
+                        <mat-icon fontIcon="check_circle" (click)="setDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon>
+                        <mat-icon fontIcon="cancel" (click)="setNotDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon>
                         <mat-icon style="color: green;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>
                         <mat-icon style="color: red;" fontIcon="close" *ngIf="finished.isSkipped(ex)"></mat-icon>
                     </div>
                 </div>
-                <div *ngIf="currentDay.exercises.length === 0">There is nothing to do anymore</div>
+                <div *ngIf="currentDay.exercises.length === 0">Вы все сделали</div>
             </div>
         </div>
         <div style="display: flex; justify-content: space-around;">
-            <div class="done-button" (click)="finishExercises()">Finish exercises for today</div>
+            <div class="done-button" (click)="finishExercises()">Закончить все упражнения</div>
         </div>
-    </div>
 </div>

@@ -9,13 +9,15 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CurrentDayComponent } from './pages/current-day/current-day.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgrammComponent,
     StatisticsComponent,
-    ProfileComponent
+    ProfileComponent,
+    CurrentDayComponent
   ],
   imports: [
     BrowserModule,

@@ -41,12 +41,16 @@ export class ProgrammComponent {
     this.programm = p;
    }
 
-   setNotDone(ex: Exercise) {
+   setNotDone(ex: Exercise, event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
     this.userExercises.skip(ex);
     console.log('setNotDone', ex, this.currentDay.exercises);
    }
 
-   setDone(ex: Exercise) {
+   setDone(ex: Exercise, event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
     this.userExercises.setDone(ex);
     console.log('setDone', ex);
    }
@@ -55,6 +59,10 @@ export class ProgrammComponent {
     this.service.finishCurrentDay();
     // this.programm = this.service.getProgramm();
     this.currentDay = this.service.getCurrentDay();
+   }
+
+   test() {
+    console.log('test')
    }
 
 }

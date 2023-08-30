@@ -1,0 +1,28 @@
+:host {
+    height: 100%;
+}
+
+.day-container {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+}
+
+.day-buttons {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around;
+    margin-bottom: 10px;;
+}
+
+.back-button {
+    padding: 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 10px;
+}

@@ -7,7 +7,8 @@ export class Exercise {
     iterations: number = 1;
     quantity: number = 1;
     mono: boolean = false;
-    time?: boolean = false;
+    time?: string = '';
+    images?: string[] = [];
 
     static fill(obj: any) {
         const ex = new Exercise();

@@ -1,29 +1,29 @@
 <div>
-    <div>Level {{level}}</div>
+    <div style="margin-left: 10px;margin-top: 10px;">Уровень: </div>
     <div class="radio-container">
         <label class="radio">
             <input type="radio" name="level" [value]="1" [(ngModel)]="level">
-            <span>Beginner</span>
+            <span>Начинающий</span>
         </label>
-        <div class="hint">2 Exercises per day, 3 days per week</div>
+        <div class="hint">2 Упражнения в день, 3 дня в неделю</div>
     </div>
     <div class="radio-container">
         <label class="radio">
             <input type="radio" name="level" [value]="2" [(ngModel)]="level">
-            <span>Intermediate</span>
+            <span>Средний</span>
         </label>
-        <div class="hint">3 Exercises per day, 3 days per week</div>
+        <div class="hint">3 Упражнения в день, 3 дня в неделю</div>
     </div>
     <div class="radio-container">
         <label class="radio">
             <input type="radio" name="level" [value]="3" [(ngModel)]="level">
-            <span>Adwanced</span>
+            <span>Сложный</span>
         </label>
-        <div class="hint">6 Exercises per day, 3 days per week</div>
+        <div class="hint">6 Упражнений в день, 3 дня в неделю</div>
     </div>
     <div>
         <div style="display: flex; justify-content: space-around;">
-            <div class="done-button" (click)="save()">Save</div>
+            <div class="done-button" (click)="save()">Сохранить</div>
         </div>
     </div>
 </div>

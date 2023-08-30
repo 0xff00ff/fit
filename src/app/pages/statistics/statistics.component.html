@@ -1,15 +1,16 @@
 <div class="statistics-container"> 
     <div class="progress-bar">
-        <div class="progress-label">Full Plan:</div>
+        <div class="progress-label">План занятий:</div>
         <div class="progress-outer"><div class="progress-inner" [style.width]="progress + '%'"></div></div>
     </div>
     <div class="programm-container">
         <div *ngFor="let day of programm; let i = index;">
             <div style="display: flex; flex-direction: row; justify-content: space-between; border: 1px solid #d9d9d9; border-radius: 5px; gap: 20px; padding: 10px; margin: 5px 0 5px 0; ">
-                <div style="white-space: nowrap;">Day: {{i+1}}</div>
+                
                 <div style="flex-grow: 1;">
-                    <div *ngFor="let ex of day.exercises" class="plan-exercise-line exercise-line">
-                        <div style="white-space: nowrap;">Level {{ex.level}}</div>
+                    <div style="white-space: nowrap; margin-bottom: 5px;">День: {{i+1}}</div>
+                    <div *ngFor="let ex of day.exercises" class="plan-exercise-line exercise-line" style="height: 30px;">
+                        <div style="white-space: nowrap;">Ур {{ex.level}}</div>
                         <div style="flex-grow: 1; margin-left: 10px;">{{ex.title}}</div>
                         <div>
                             <mat-icon style="color: green;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>

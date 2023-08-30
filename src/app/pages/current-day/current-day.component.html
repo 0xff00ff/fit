@@ -12,7 +12,7 @@
         <div class="title">
             <div>#{{exerciseIndex}}</div>
             <div>{{exercise.title}}</div> 
-            <div>{{exercise.quantity}} X {{exercise.iterations}}
+            <div>{{exercise.iterations}} X {{exercise.quantity}}
             <span *ngIf="exercise.mono"> X 2</span>
             {{exercise.time}}</div>
         </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="day-buttons">
         <div (click)="prev()">Предидущее</div>
-        <div (click)="finishExercises()" style="color: #c70044;">Закончить все упражнения</div>
+        <div (click)="finishExercises()" style="color: #c70044;">Закончить всё</div>
         <div (click)="next()">Следующее</div>
     </div>
 </div>

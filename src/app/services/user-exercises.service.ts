@@ -63,5 +63,6 @@ export class UserExercisesService {
 
   clearUnfinished() {
     this.exercisesDone.clearUnfinished();
+    this.save();
   }
 }

@@ -39,6 +39,7 @@
 .progress-label {
     width: 100px;
     white-space: nowrap;
+    margin-right: 5px;
 }
 
 .plan-exercise-line {

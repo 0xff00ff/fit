@@ -1,9 +1,10 @@
 <div style="padding: 10px;">
+    <div style=" display: flex; flex-direction: row; justify-content: space-between; padding: 5px;">
+        <div>Занятия на сегодня</div>
+        <div routerLink="/current-day/0">Подробней</div>
+    </div>
         <div class="exercises-container">
-            <div style=" display: flex; flex-direction: row; justify-content: space-between; padding: 5px;">
-                <div>Занятия на сегодня</div>
-                <div routerLink="/current-day/0">Подробней</div>
-            </div>
+            
             <div style="flex-grow: 1;">
                 <div *ngFor="let ex of currentDay.exercises; let i = index;" class="exercise-line" (click)="test()" routerLink="/current-day/{{i}}">
                     <div style="white-space: nowrap;">Ур {{ex.level}}</div>

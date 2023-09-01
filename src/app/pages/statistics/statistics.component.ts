@@ -55,4 +55,10 @@ export class StatisticsComponent {
     // this.programm = this.service.getProgramm();
     this.currentDay = this.service.getCurrentDay();
    }
+
+   restore(ex: Exercise) {
+    if (!confirm('Отменить выполнение упражнения?\nВсе упражнения этой группы сделанные позже будут так же отменены')) {
+      return;
+    }
+   }
 }

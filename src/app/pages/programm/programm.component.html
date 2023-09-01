@@ -14,8 +14,8 @@
                         <div style="width: 70px; display: flex; justify-content: space-between; flex-shrink: 0;">
                             <mat-icon fontIcon="check_circle" (click)="setDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon>
                             <mat-icon fontIcon="cancel" (click)="setNotDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon>
-                            <mat-icon style="color: green;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>
-                            <mat-icon style="color: red;" fontIcon="close" *ngIf="finished.isSkipped(ex)"></mat-icon>
+                            <div style="display: flex; justify-content: flex-end; width: 100%;"><mat-icon style="color: green;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>
+                            <mat-icon style="color: red;" fontIcon="close" *ngIf="finished.isSkipped(ex)"></mat-icon></div>
                         </div>
                     </div>
                     <div>

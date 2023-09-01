@@ -13,7 +13,7 @@
                             <div>{{ex.getType()}}</div>
                             <div>Ур {{ex.level}}</div>
                             <div style="flex-grow: 2;"></div>
-                            <div style="overflow: hidden;">
+                            <div style="overflow: hidden; cursor: pointer;" (click)="restore(ex)">
                                 <mat-icon style="color: green; height: 20px;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>
                                 <mat-icon style="color: red;" fontIcon="close" *ngIf="finished.isSkipped(ex)"></mat-icon>
                             </div>

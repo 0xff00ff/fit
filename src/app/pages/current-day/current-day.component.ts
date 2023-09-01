@@ -17,6 +17,7 @@ export class CurrentDayComponent {
   exerciseIndex: number;
   exercise: Exercise;
   finished: ExercisesDone;
+  exercises: Exercise[] = [];
 
   constructor(
     private programmService: ProgrammService, 
@@ -25,10 +26,13 @@ export class CurrentDayComponent {
     private userExercises: UserExercisesService, 
     private service: ProgrammService
     ) {
+    
+    this.finished = userExercises.getFinished();
     this.exerciseIndex = parseInt(this.route.snapshot.paramMap.get('index') || '0');
     this.day = programmService.getCurrentDay();
-    this.exercise = this.day.exercises[this.exerciseIndex];
-    this.finished = userExercises.getFinished();
+    this.exercises = this.day.exercises.filter(e => !this.finished.isDone(e));
+    this.exercise = this.exercises[this.exerciseIndex];
+    
   }
 
   prev() {

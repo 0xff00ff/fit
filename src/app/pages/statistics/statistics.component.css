@@ -4,7 +4,15 @@
 
 .exercise-line {
     display: flex;
+    flex-direction: column;
+    /* gap: 0px; */
+}
+
+.exercise-line-header {
+    display: flex;
     flex-direction: row;
+    gap: 10px;
+    height: 20px;
 }
 
 .progress-outer{
@@ -43,8 +51,7 @@
 }
 
 .plan-exercise-line {
-    gap: 0px;
-    margin: 0px;
+    
 }
 
 .done-button {

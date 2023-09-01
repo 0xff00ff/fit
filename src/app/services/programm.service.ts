@@ -4,6 +4,7 @@ import { Level, Options } from '../models/options';
 import { Day } from '../models/programm';
 import { ExercisesDone, UserExercise } from '../models/user-exercise';
 import { UserExercisesService } from './user-exercises.service';
+import { DbService } from './db.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,25 +16,29 @@ export class ProgrammService {
   dayIndex: number = 1;
   dayIndexes: number = 1;
 
-  constructor(readonly exercisesService: ExercisesService, readonly userExercisesService: UserExercisesService) { 
+  constructor(
+    readonly exercisesService: ExercisesService, 
+    readonly userExercisesService: UserExercisesService,
+    private db: DbService) { 
     this.generateProgramm();
   }
 
   generateProgramm() {
-    const rawProgramm = localStorage.getItem('programm');
-    if (rawProgramm) {
-      this.programm = JSON.parse(rawProgramm);
+    const programm = null; //this.db.getProgramm();
+    if (programm) {
+      this.programm = programm;
     } else {
       this.programm = this._getProgramm(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
       localStorage.setItem('programm', JSON.stringify(this.programm));
     }
-    const rawCurrentDay = localStorage.getItem('currentDay');
+    const rawCurrentDay = null; //this.db.getCurrentDay();
     if (rawCurrentDay) {
-      this.currentDay = JSON.parse(rawCurrentDay);
+      this.currentDay = rawCurrentDay
     } else {
       this.currentDay = this._getCurrentDay(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
       localStorage.setItem('currentDay', JSON.stringify(this.currentDay));
     }
+    console.log('programm', this.programm);
   }
 
   finishCurrentDay() {
@@ -41,7 +46,7 @@ export class ProgrammService {
     if (this.dayIndex > this.dayIndexes) {
       this.dayIndex = 1;
     }
-    localStorage.removeItem('currentDay');
+    this.db.clearCurrentDay();
     // localStorage.removeItem('programm')
     this.userExercisesService.clearUnfinished();
     this.generateProgramm();
@@ -153,8 +158,8 @@ export class ProgrammService {
   }
   
   clearProgramm() {
-    localStorage.removeItem('programm');
-    localStorage.removeItem('currentDay');
+    this.db.clearProgramm();
+    this.db.clearCurrentDay();
     this.generateProgramm();
   }
 }

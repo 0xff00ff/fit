@@ -8,7 +8,7 @@ import { CurrentDayComponent } from './pages/current-day/current-day.component';
 const routes: Routes = [
   {path: '', redirectTo: '/programm', pathMatch: 'full'},
   {path: 'programm', component: ProgrammComponent},
-  {path: 'current-day/:index', component: CurrentDayComponent},
+  {path: 'current-day', component: CurrentDayComponent},
   {path: 'statistics', component: StatisticsComponent},
   {path: 'profile', component: ProfileComponent},
   {path: '**', redirectTo: '/programm', pathMatch: 'full'},

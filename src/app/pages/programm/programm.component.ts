@@ -19,7 +19,7 @@ export class ProgrammComponent {
   currentDay: Day;
   finished: ExercisesDone;
 
-  constructor(
+  constructor(  
     private userExercises: UserExercisesService, 
     private service: ProgrammService, 
     private exercicesService: ExercisesService,
@@ -33,7 +33,6 @@ export class ProgrammComponent {
     const total = ex.getAll().length;
     const current = this.finished.len();
     this.progress = Math.round(current / total * 100);
-    console.log(this.progress);
 
     const d = service.getCurrentDay();
     this.currentDay = d;

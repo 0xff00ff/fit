@@ -7,7 +7,7 @@ export enum Level {
 export class Options {
     level: Level = Level.Beginner;
 
-    constructor(level: Level) {
+    constructor(level: Level = Level.Beginner) {
         this.level = level;
     }
 

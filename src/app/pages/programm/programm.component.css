@@ -1,11 +1,18 @@
 .exercise-line {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* justify-content: space-between; */
     /* align-items: center; */
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     padding: 10px;
     column-gap: 10px;
+}
+
+.line-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 20px;
 }
 
 .progress-outer{

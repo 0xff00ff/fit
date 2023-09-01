@@ -3,6 +3,7 @@ import { ProgrammService } from './programm.service';
 import { ExercisesDone } from '../models/user-exercise';
 import { Level, Options } from '../models/options';
 import { Exercise } from '../models/exercise';
+import { DbService } from './db.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,14 @@ export class UserExercisesService {
   exercisesDone: ExercisesDone = new ExercisesDone();
   options: Options = new Options(Level.Beginner);
 
-  constructor() {
-    const data = localStorage.getItem('exercisesDone');
+  constructor(readonly db: DbService) {
+    const data = db.getExercisesDone();
     if (data) {
-      const exercisesRaw = JSON.parse(data);
-      for (let id in exercisesRaw.exercises) {
-        const done = exercisesRaw.exercises[id];
-        this.exercisesDone.add(parseInt(id), done);
-      }
+      this.exercisesDone = data;
     }
-    const optionsRaw = localStorage.getItem('options');
-    if (optionsRaw) {
-      const opt = JSON.parse(optionsRaw);
-      this.options = Options.restore(opt);
+    const options = db.getOptions();
+    if (options) {
+      this.options = options
     }
    }
 

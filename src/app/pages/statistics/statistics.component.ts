@@ -62,6 +62,7 @@ export class StatisticsComponent {
     console.log('restore', ex);
     if (this.userExercises.getFinished().isSkipped(ex)) {
       this.userExercises.removeFromDone(ex);
+      this.service.finishCurrentDay();
     }
     if (this.userExercises.getFinished().isDone(ex)) {
       const group = ex.group;
@@ -76,6 +77,7 @@ export class StatisticsComponent {
         }
       }
       this.userExercises.removeFromDone(ex);
+      this.service.finishCurrentDay();
     }
    }
 }

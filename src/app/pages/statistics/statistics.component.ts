@@ -32,7 +32,6 @@ export class StatisticsComponent {
     const total = ex.getAll().length;
     const current = this.finished.len();
     this.progress = Math.round(current / total * 100);
-    console.log(this.progress);
 
     const d = service.getCurrentDay();
     this.currentDay = d;
@@ -59,6 +58,24 @@ export class StatisticsComponent {
    restore(ex: Exercise) {
     if (!confirm('Отменить выполнение упражнения?\nВсе упражнения этой группы сделанные позже будут так же отменены')) {
       return;
+    }
+    console.log('restore', ex);
+    if (this.userExercises.getFinished().isSkipped(ex)) {
+      this.userExercises.removeFromDone(ex);
+    }
+    if (this.userExercises.getFinished().isDone(ex)) {
+      const group = ex.group;
+      const levfl = ex.level;
+      let next = ex
+      while(true) {
+        next = this.exercicesService.getExercises().getNext(next);
+        if (this.userExercises.getFinished().isDone(next) || this.userExercises.getFinished().isSkipped(next)) {
+          this.userExercises.removeFromDone(next);
+        } else {
+          break;
+        }
+      }
+      this.userExercises.removeFromDone(ex);
     }
    }
 }

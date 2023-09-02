@@ -686,7 +686,6 @@ export class ExercisesService {
 
 class Exercises {
   constructor(private exercises: Exercise[]) {
-    console.log(this.exercises)
   }
 
   getAll() {

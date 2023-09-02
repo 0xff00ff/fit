@@ -38,7 +38,6 @@ export class ProgrammService {
       this.currentDay = this._getCurrentDay(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
       localStorage.setItem('currentDay', JSON.stringify(this.currentDay));
     }
-    console.log('programm', this.programm);
   }
 
   finishCurrentDay() {
@@ -87,7 +86,6 @@ export class ProgrammService {
             break;
           }
           d = done.isDone(next);
-          console.log('next', next)
         }
         if (next) {
         day.exercises.push(next)

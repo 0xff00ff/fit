@@ -93,6 +93,19 @@ export class DbService {
     }
   }
 
+  saveDayStarted(dayStarted: boolean) {
+    localStorage.setItem('dayStarted', JSON.stringify(dayStarted));
+  }
+
+  getDayStarted(): boolean {
+    const rawDayStarted = localStorage.getItem('dayStarted');
+    if (rawDayStarted) {
+      return JSON.parse(rawDayStarted);
+    } else {
+      return false;
+    }
+  }
+
   clearOptions() {
     localStorage.removeItem(this.optionsKey);
   }

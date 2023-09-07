@@ -1,10 +1,15 @@
-<div style="padding: 10px;">
+<div *ngIf="!dayStarted" style="padding: 10px;">
+    <div style="display: flex; justify-content: space-around; margin: 10px;">Молодец, ты выполнил все упраждения!</div>
+    <div style="display: flex; justify-content: space-around;">
+        <div class="done-button" (click)="startExercises()">Я готов начать упражнения</div>
+    </div>
+</div>
+<div *ngIf="dayStarted" style="padding: 10px;">
     <div style=" display: flex; flex-direction: row; justify-content: space-between; padding: 5px;">
         <div>Занятия на сегодня</div>
         <div routerLink="/current-day" style="cursor: pointer;">Подробней</div>
     </div>
         <div class="exercises-container">
-            
             <div style="flex-grow: 1;">
                 <div *ngFor="let ex of currentDay.exercises; let i = index;" class="exercise-line" (click)="test()">
                     <div class="line-header">
@@ -12,8 +17,8 @@
                         <div>{{ex.getType()}}</div>
                         <div style="flex-grow: 2;"></div>
                         <div style="width: 70px; display: flex; justify-content: space-between; flex-shrink: 0;">
-                            <div><mat-icon fontIcon="check_circle" (click)="setDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon></div>
-                            <div><mat-icon fontIcon="cancel" (click)="setNotDone(ex, $event)"  *ngIf="!finished.find(ex)"></mat-icon></div>
+                            <div><mat-icon fontIcon="check_circle" (click)="setDone(ex, $event)" *ngIf="!finished.find(ex)"></mat-icon></div>
+                            <div><mat-icon fontIcon="cancel" (click)="setNotDone(ex, $event)" *ngIf="!finished.find(ex)"></mat-icon></div>
                             <div *ngIf="finished.find(ex)" style="display: flex; justify-content: flex-end; width: 100%;">
                                 <mat-icon style="color: green;" fontIcon="done" *ngIf="finished.isDone(ex)"></mat-icon>
                                 <mat-icon style="color: red;" fontIcon="close" *ngIf="finished.isSkipped(ex)"></mat-icon>

@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="day-buttons">
-        <div><div *ngIf="exerciseIndex > 0" (click)="prev()">Предидущее</div></div>
+        <div><div *ngIf="exerciseIndex > 0" (click)="prev()">Предыдущее</div></div>
         <div (click)="finishExercises()" style="color: #c70044;">Закончить всё</div>
         <div><div *ngIf="exerciseIndex < day.exercises.length-1" (click)="next()">Следующее</div></div>
     </div>

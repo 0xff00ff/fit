@@ -24,19 +24,21 @@ export class ProgrammService {
   }
 
   generateProgramm() {
-    const programm = null; //this.db.getProgramm();
+    const programm = this.db.getProgramm();
     if (programm) {
       this.programm = programm;
     } else {
       this.programm = this._getProgramm(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
-      localStorage.setItem('programm', JSON.stringify(this.programm));
+      // localStorage.setItem('programm', JSON.stringify(this.programm));
+      this.db.saveProgramm(this.programm);
     }
-    const rawCurrentDay = null; //this.db.getCurrentDay();
+    const rawCurrentDay = this.db.getCurrentDay();
     if (rawCurrentDay) {
       this.currentDay = rawCurrentDay
     } else {
       this.currentDay = this._getCurrentDay(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
-      localStorage.setItem('currentDay', JSON.stringify(this.currentDay));
+      // localStorage.setItem('currentDay', JSON.stringify(this.currentDay));
+      this.db.saveCurrentDay(this.currentDay);
     }
   }
 

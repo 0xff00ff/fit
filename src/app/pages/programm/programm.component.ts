@@ -3,6 +3,7 @@ import { Exercise } from 'src/app/models/exercise';
 import { Day } from 'src/app/models/programm';
 import { ExercisesDone } from 'src/app/models/user-exercise';
 import { BottomTabsService } from 'src/app/services/bottom-tabs.service';
+import { DbService } from 'src/app/services/db.service';
 import { ExercisesService } from 'src/app/services/exercises.service';
 import { ProgrammService } from 'src/app/services/programm.service';
 import { UserExercisesService } from 'src/app/services/user-exercises.service';
@@ -15,7 +16,7 @@ import { UserExercisesService } from 'src/app/services/user-exercises.service';
 export class ProgrammComponent {
 
   progress: number = 0;
-  programm: Day[];
+  dayStarted: boolean = false;
   currentDay: Day;
   finished: ExercisesDone;
 
@@ -23,7 +24,8 @@ export class ProgrammComponent {
     private userExercises: UserExercisesService, 
     private service: ProgrammService, 
     private exercicesService: ExercisesService,
-    bottomTabsService: BottomTabsService
+    bottomTabsService: BottomTabsService,
+    private db: DbService
     ) {
       
     bottomTabsService.setActiveTab('programm');
@@ -36,8 +38,7 @@ export class ProgrammComponent {
 
     const d = service.getCurrentDay();
     this.currentDay = d;
-    const p = service.getProgramm();
-    this.programm = p;
+    this.dayStarted = db.getDayStarted();
    }
 
    setNotDone(ex: Exercise, event: MouseEvent) {
@@ -56,12 +57,19 @@ export class ProgrammComponent {
 
    finishExercises() {
     this.service.finishCurrentDay();
-    // this.programm = this.service.getProgramm();
     this.currentDay = this.service.getCurrentDay();
+    this.dayStarted = false;
+    this.db.saveDayStarted(this.dayStarted);
    }
 
    test() {
     console.log('test')
+   }
+
+   startExercises() {
+    this.currentDay = this.service.getCurrentDay();
+    this.dayStarted = true;
+    this.db.saveDayStarted(this.dayStarted);
    }
 
 }

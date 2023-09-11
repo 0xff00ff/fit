@@ -1,0 +1,20 @@
+<div class="day-container">
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+        <div class="back-button" routerLink="{{backUrl}}">&lt; Назад</div>
+    </div>
+    <div style="flex-grow: 1; height: 100%; overflow: auto;">
+        <div class="title">
+            <div>{{exercise.title}}</div> 
+            <div>
+                {{exercise.iterations}} X {{exercise.quantity}}
+                <span *ngIf="exercise.mono"> X 2</span>
+                {{exercise.time}}
+            </div>
+        </div>
+        <div *ngIf="exercise.images" style="display: flex; flex-direction: column;">
+            <div *ngFor="let image of exercise.images">
+                <img [src]="image" style="width: 100%; max-height: 20%;"/>   
+            </div>
+        </div>
+    </div>
+</div>

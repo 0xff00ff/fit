@@ -11,7 +11,7 @@
     </div>
         <div class="exercises-container">
             <div style="flex-grow: 1;">
-                <div *ngFor="let ex of currentDay.exercises; let i = index;" class="exercise-line" (click)="test()">
+                <div *ngFor="let ex of currentDay.exercises; let i = index;" class="exercise-line" routerLink="/exercise/{{ex.id}}/p">
                     <div class="line-header">
                         <div style="white-space: nowrap;">Ур {{ex.level}}</div>
                         <div>{{ex.getType()}}</div>

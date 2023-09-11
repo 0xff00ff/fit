@@ -62,10 +62,6 @@ export class ProgrammComponent {
     this.db.saveDayStarted(this.dayStarted);
    }
 
-   test() {
-    console.log('test')
-   }
-
    startExercises() {
     this.currentDay = this.service.getCurrentDay();
     this.dayStarted = true;

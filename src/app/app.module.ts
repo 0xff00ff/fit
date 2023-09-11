@@ -9,7 +9,7 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CurrentDayComponent } from './pages/current-day/current-day.component';
+import { ExerciseComponent } from './pages/exercise/exercise.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { CurrentDayComponent } from './pages/current-day/current-day.component';
     ProgrammComponent,
     StatisticsComponent,
     ProfileComponent,
-    CurrentDayComponent
+    ExerciseComponent
   ],
   imports: [
     BrowserModule,

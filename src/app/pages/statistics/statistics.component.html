@@ -8,7 +8,7 @@
             <div style="display: flex; flex-direction: row; justify-content: space-between; border: 1px solid #d9d9d9; border-radius: 5px; gap: 20px; padding: 10px; margin: 5px 0 5px 0; ">
                 <div style="flex-grow: 1;">
                     <div>День: {{i+1}}</div>
-                    <div *ngFor="let ex of day.exercises" class="exercise-line">
+                    <div *ngFor="let ex of day.exercises" class="exercise-line" routerLink="/exercise/{{ex.id}}/s">
                         <div class="exercise-line-header">
                             <div>{{ex.getType()}}</div>
                             <div>Ур {{ex.level}}</div>

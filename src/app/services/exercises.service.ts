@@ -682,6 +682,10 @@ export class ExercisesService {
   getExercises(): Exercises {
     return this.exercises
   }
+
+  getById(id: number): Exercise {
+    return this.exercises.getAll().filter(x => x.id === id)[0];
+  }
 }
 
 class Exercises {

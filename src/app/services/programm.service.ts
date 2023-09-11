@@ -29,7 +29,6 @@ export class ProgrammService {
       this.programm = programm;
     } else {
       this.programm = this._getProgramm(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
-      // localStorage.setItem('programm', JSON.stringify(this.programm));
       this.db.saveProgramm(this.programm);
     }
     const rawCurrentDay = this.db.getCurrentDay();
@@ -37,7 +36,6 @@ export class ProgrammService {
       this.currentDay = rawCurrentDay
     } else {
       this.currentDay = this._getCurrentDay(this.userExercisesService.getOptions(), this.userExercisesService.getFinished());
-      // localStorage.setItem('currentDay', JSON.stringify(this.currentDay));
       this.db.saveCurrentDay(this.currentDay);
     }
   }

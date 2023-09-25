@@ -1,5 +1,7 @@
 <div *ngIf="!dayStarted" style="padding: 10px;">
-    <div style="display: flex; justify-content: space-around; margin: 10px;">Молодец, ты выполнил все упраждения!</div>
+    <div *ngIf="lastDayResult >= 80" style="display: flex; justify-content: space-around; margin: 10px;">Молодец, ты выполнил {{lastDayResult.toFixed(2)}}% упраждений!</div>
+    <div *ngIf="lastDayResult < 80 && lastDayResult >= 50" style="display: flex; justify-content: space-around; margin: 10px;">Не плохо, ты выполнил {{lastDayResult.toFixed(2)}}% упраждений!</div>
+    <div *ngIf="lastDayResult < 50" style="display: flex; justify-content: space-around; margin: 10px;">Ты выполнил {{lastDayResult.toFixed(2)}}% упраждений!</div>
     <div style="display: flex; justify-content: space-around;">
         <div class="done-button" (click)="startExercises()">Я готов начать упражнения</div>
     </div>

@@ -109,4 +109,17 @@ export class DbService {
   clearOptions() {
     localStorage.removeItem(this.optionsKey);
   }
+
+  saveLastDayResult(dayResult: number) {
+    localStorage.setItem('lastDayResult', JSON.stringify(dayResult));
+  }
+
+  getLastDayResult(): number {
+    const rawLastDayResult = localStorage.getItem('lastDayResult');
+    if (rawLastDayResult) {
+      return JSON.parse(rawLastDayResult);
+    } else {
+      return 0;
+    }
+  }
 }

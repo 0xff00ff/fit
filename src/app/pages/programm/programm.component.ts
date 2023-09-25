@@ -19,6 +19,7 @@ export class ProgrammComponent {
   dayStarted: boolean = false;
   currentDay: Day;
   finished: ExercisesDone;
+  lastDayResult: number = 0;
 
   constructor(  
     private userExercises: UserExercisesService, 
@@ -39,6 +40,7 @@ export class ProgrammComponent {
     const d = service.getCurrentDay();
     this.currentDay = d;
     this.dayStarted = db.getDayStarted();
+    this.lastDayResult = db.getLastDayResult();
    }
 
    setNotDone(ex: Exercise, event: MouseEvent) {
@@ -56,6 +58,18 @@ export class ProgrammComponent {
    }
 
    finishExercises() {
+    let doneCount = 0;
+    let skippedCount = 0;
+    for (let ex of this.currentDay.exercises) {
+      if (this.finished.isDone(ex)) {
+        doneCount++;
+      }
+      if (this.finished.isSkipped(ex)) {
+        skippedCount++;
+      }
+    }
+    this.lastDayResult = 100 / (doneCount + skippedCount) * doneCount;
+    this.db.saveLastDayResult(this.lastDayResult);
     this.service.finishCurrentDay();
     this.currentDay = this.service.getCurrentDay();
     this.dayStarted = false;

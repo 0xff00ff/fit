@@ -55,7 +55,9 @@ export class StatisticsComponent {
     this.currentDay = this.service.getCurrentDay();
    }
 
-   restore(ex: Exercise) {
+   restore(ex: Exercise, event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
     if (!confirm('Отменить выполнение упражнения?\nВсе упражнения этой группы сделанные позже будут так же отменены')) {
       return;
     }

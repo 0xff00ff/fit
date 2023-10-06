@@ -20,7 +20,9 @@ export class ProgrammService {
     readonly exercisesService: ExercisesService, 
     readonly userExercisesService: UserExercisesService,
     private db: DbService) { 
-    this.generateProgramm();
+      
+      this.calculateDayIndexes(this.userExercisesService.getOptions());
+      this.generateProgramm();
   }
 
   generateProgramm() {
@@ -94,6 +96,22 @@ export class ProgrammService {
       break;
     }
     return day;
+  }
+
+  private calculateDayIndexes(options: Options) {
+    switch (options.level) {
+      case Level.Beginner:
+        this.dayIndexes = 3;
+        break;
+      case Level.Intermediate:
+        this.dayIndexes = 2;
+        break;
+      case Level.Advanced:
+        this.dayIndexes = 1;
+        break;
+      default:
+        this.dayIndexes = 3;
+    }
   }
 
   private _getProgramm(options: Options, finished: ExercisesDone): Day[] {

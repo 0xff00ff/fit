@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Level, Options } from 'src/app/models/options';
 import { BottomTabsService } from 'src/app/services/bottom-tabs.service';
+import { DbService } from 'src/app/services/db.service';
 import { ProgrammService } from 'src/app/services/programm.service';
 import { UserExercisesService } from 'src/app/services/user-exercises.service';
 
@@ -13,7 +14,7 @@ export class ProfileComponent {
 
   level: Level = Level.Beginner;
 
-  constructor(bottomTabsService: BottomTabsService, private userExercisesService: UserExercisesService, private programmService: ProgrammService) {
+  constructor(bottomTabsService: BottomTabsService, private userExercisesService: UserExercisesService, private programmService: ProgrammService, private dbService: DbService) {
     bottomTabsService.setActiveTab('profile');
     this.level = this.userExercisesService.getOptions().level;
   }
@@ -21,5 +22,11 @@ export class ProfileComponent {
   save() {
     this.userExercisesService.setOptions(new Options(this.level));
     this.programmService.clearProgramm();
+  }
+
+  debug() {
+    alert(
+      `options: ${JSON.stringify(this.userExercisesService.getOptions())}\n`
+    );
   }
 }
